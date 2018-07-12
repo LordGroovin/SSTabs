@@ -1,23 +1,31 @@
-import { NgModule, ErrorHandler } from '@angular/core';
+// import { AuthService } from './../providers/auth-service';
 import { BrowserModule } from '@angular/platform-browser';
-import { IonicApp, IonicModule, IonicErrorHandler } from 'ionic-angular';
-import { MyApp } from './app.component';
+import { ErrorHandler, NgModule } from '@angular/core';
+import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
+import { SplashScreen } from '@ionic-native/splash-screen';
+import { StatusBar } from '@ionic-native/status-bar';
 
+import { MyApp } from './app.component';
+import { HomePage } from '../pages/home/home';
+import { LoginPage} from '../pages/login/login';
+import { RegistrationPage} from '../pages/registration/registration';
 import { AboutPage } from '../pages/about/about';
 import { ContactPage } from '../pages/contact/contact';
-import { HomePage } from '../pages/home/home';
 import { TabsPage } from '../pages/tabs/tabs';
+import { AuthService } from '../services/auth';
 
-import { StatusBar } from '@ionic-native/status-bar';
-import { SplashScreen } from '@ionic-native/splash-screen';
+// import { }
+// import { AuthServiceProvider } from '../providers/auth-service/auth-service';
 
 @NgModule({
   declarations: [
     MyApp,
-    AboutPage,
-    ContactPage,
     HomePage,
-    TabsPage
+    LoginPage,
+    RegistrationPage,
+    TabsPage,
+    AboutPage,
+    ContactPage
   ],
   imports: [
     BrowserModule,
@@ -26,15 +34,24 @@ import { SplashScreen } from '@ionic-native/splash-screen';
   bootstrap: [IonicApp],
   entryComponents: [
     MyApp,
-    AboutPage,
-    ContactPage,
     HomePage,
-    TabsPage
+    LoginPage,
+    RegistrationPage,
+    TabsPage,
+    AboutPage,
+    ContactPage
   ],
   providers: [
+    {provide: ErrorHandler, useClass: IonicErrorHandler},
     StatusBar,
     SplashScreen,
-    {provide: ErrorHandler, useClass: IonicErrorHandler}
+    AuthService
   ]
 })
-export class AppModule {}
+export class AppModule {
+
+  onLoad () {
+
+  }
+}
+

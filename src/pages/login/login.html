@@ -1,0 +1,92 @@
+
+
+
+<ion-header>
+
+  <ion-navbar>
+      <ion-buttons start>
+          <button ion-button icon-only menuToggle>
+            <ion-icon name="menu"></ion-icon>
+          </button>
+        </ion-buttons>
+    <ion-title>LoginPage</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+
+  <form #f="ngForm" (ngSubmit)="onSignin(f)">
+    <ion-list>
+      <ion-item>
+        <ion-label fixed>Mail</ion-label>
+        <!-- can add a better validator, maybe "pattern required" instead of "required"-->
+        <ion-input
+          type="email"
+          ngModel
+          name="email"
+          pattern
+          required>
+        </ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label fixed>Password</ion-label>
+        <!-- can add a better validator, maybe "pattern required" instead of "required"-->
+          <ion-input
+          type="password"
+          ngModel
+          name="password"
+          required>
+          </ion-input>
+        </ion-item>
+    </ion-list>
+    <button ion-button block type="submit" [disabled]="!f.valid">Signup
+
+    </button>
+  </form>
+
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- <link rel="stylesheet" type="text/css" href="loginPracticeTemplate.css"> -->
+
+  <body>
+
+  <!-- <div id="loginWindow">
+
+    <form class="modal-content animate" action="/action_page.php">
+      <div class="imgcontainer">
+        <span onclick="document.getElementById('loginWindow').style.display='none'" class="close" title="Close Modal">&times;</span>
+        <img src="img_avatar2.png" alt="LOGO HERE" class="avatar">
+      </div>
+
+      <div class="container">
+        <label for="userName"><b>Username</b></label>
+        <input type="text" placeholder="Enter Username" name="userName" required>
+
+        <label for="psw"><b>Password</b></label>
+        <input type="password" placeholder="Enter Password" name="psw" required>
+
+        <button type="submit">Login</button>
+        <label>
+          <input type="checkbox" checked="checked" name="remember"> Remember me
+        </label>
+      </div>
+
+      <div class="container" style="background-color:#f1f1f1">
+        <button type="button" onclick="document.getElementById('loginWindow').style.display='none'" class="cancelbtn">Cancel</button>
+        <span class="psw"> <a href="#">Forgot password?</a></span>
+      </div>
+    </form>
+  </div> -->
+
+  <script>
+    // Get the modal
+    var modal = document.getElementById('loginWindow');
+
+  </script>
+
+  </body>
+
+</ion-content>
